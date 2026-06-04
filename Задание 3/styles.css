@@ -74,6 +74,10 @@ body {
     font-size: 15px;
 }
 
+.burger-menu-btn {
+    display: none;
+}
+
 /* --- Компоненты шапки --- */
 .rating-bar {
     font-weight: 700;
@@ -606,4 +610,330 @@ body {
     transform: rotate(-10.9deg); 
     z-index: 1;       
     pointer-events: none; 
+}
+
+.footer-phone-row {
+    display: none;
+}
+
+/* --- МЕДИА-ЗАПРОСЫ ДЛЯ ПЛАНШЕТОВ --- */
+/* --- МЕДИА-ЗАПРОСЫ ДЛЯ ПЛАНШЕТОВ --- */
+@media (max-width: 992px) {
+    /* Секции общего контейнера */
+    .section-title-top,
+    .section-title-pasta,
+    .cakes-grid {
+        max-width: 768px;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    /* --- Шапка сайта (Header) --- */
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    /* "Удаляем" промежуточные контейнеры, чтобы все элементы встали в одну линию */
+    .header-top,
+    .header-bottom {
+        display: contents;
+    }
+
+    .delivery-info,
+    .header .callback-btn,
+    .nav-menu {
+        display: none !important;
+    }
+
+    /* Расставляем элементы по порядку слева направо */
+    .logo-box {
+        margin-left: 0;
+        order: 1; /* Первый слева */
+    }
+
+    .phone-number {
+        order: 2; /* Второй */
+        font-size: 18px; /* Уменьшаем шрифт, чтобы влезло */
+        margin-left: auto; /* Отталкивает себя и соседей справа к правому краю */
+        margin-right: 15px;
+    }
+
+    .cart-btn {
+        order: 3; /* Третий */
+        margin-right: 15px;
+    }
+
+    .burger-menu-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        order: 4; /* Бургер строго последний (с правого края) */
+        cursor: pointer;
+    }
+
+    .burger-menu-btn span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background-color: #0E0C0D;
+        border-radius: 2px;
+    }
+
+    /* --- Постеры (Сброс размеров) --- */
+    .poster-grid-top {
+        grid-template-columns: repeat(4, 355px); /* Точная ширина из Figma */
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    /* Жестко переопределяем высоту для всех постеров */
+    .poster,
+    .poster:nth-child(1),
+    .poster:nth-child(2),
+    .poster:nth-child(3),
+    .poster:nth-child(4) {
+        height: 206px; /* Точная высота из Figma */
+    }
+
+    /* Отключаем белую пелену по бокам, так как на планшете это скролл */
+    .poster:nth-child(1)::after,
+    .poster:nth-child(4)::after {
+        display: none;
+    }
+
+    /* --- Новинки --- */
+    .new-pizza-grid {
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    /* --- Меню (2 колонки) --- */
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        max-width: 768px;
+    }
+
+    .product-card {
+        display: grid;
+        grid-template-columns: 122px 1fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+            "image title"
+            "image desc"
+            "footer footer";
+        gap: 10px 15px;
+        height: 169px;
+        padding: 15px;
+        box-sizing: border-box;
+        background: #ffffff;
+        box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.04);
+        border-radius: 12px;
+    }
+
+    .image-box {
+        grid-area: image;
+        width: 122px;
+        height: 122px;
+        margin-bottom: 0;
+    }
+
+    .image-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .title {
+        grid-area: title;
+        font-size: 12px;
+        font-weight: 800;
+        line-height: 20px;
+        color: #797979;
+        margin: 0;
+    }
+
+    .description {
+        grid-area: desc;
+        font-size: 10px;
+        line-height: 16px;
+        color: #686466;
+        margin: 0;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+    }
+
+    .card-footer {
+        grid-area: footer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    .price {
+        font-size: 22px;
+        line-height: 19px;
+        color: #231F20;
+        font-weight: 700;
+    }
+
+    .add-btn {
+        width: 126px;
+        height: 36px;
+        padding: 0;
+        font-size: 14px;
+        color: #473E43;
+        background: #F7D22D;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* --- Оплата и доставка --- */
+    .payment-and-delivery {
+        padding: 40px 20px;
+    }
+
+    .payment-text {
+        font-size: 24px;
+        line-height: 29px;
+        margin-bottom: 40px;
+    }
+
+    .info-grid {
+        grid-template-columns: repeat(2, 255px);
+        justify-content: center;
+        gap: 55px 30px;
+        margin: 40px auto 0;
+    }
+
+    .info-grid-element {
+        width: 255px;
+        height: 100px;
+        padding: 35px 15px 10px;
+        box-sizing: border-box;
+        border-radius: 14px;
+        box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.03);
+    }
+
+    .info-grid-element-text {
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: 700;
+        color: #473E43;
+    }
+
+    .info-grid-element-icon {
+        top: -38.5px;
+        width: 77px;
+        height: 77px;
+    }
+
+    .info-grid-element-icon img {
+        width: 44px;
+        height: 44px;
+    }
+
+    .map img {
+        max-width: 729px;
+        border-radius: 14px;
+        margin: 40px auto 0;
+    }
+
+    /* --- Подвал сайта (Footer) --- */
+    .footer-top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .footer-col {
+        width: 100%;
+        align-items: center;
+    }
+
+    .footer-top .footer-col:nth-child(2) {
+        padding-top: 0;
+    }
+
+    .footer-contacts {
+        padding-top: 0;
+        width: 100%;
+    }
+
+    .social-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    /* Жесткий сброс десктопных правил текста */
+    .footer-address {
+        white-space: normal; /* Разрешаем перенос текста */
+        text-align: center;  /* Центрируем */
+        line-height: 1.5;    /* Безопасный межстрочный интервал */
+        margin-top: 10px;
+    }
+
+    .messengers-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .messenger-box {
+        width: 52px;
+        height: 52px;
+        flex-shrink: 0;
+    }
+
+    .messenger-box.write-to-us {
+        width: auto;
+        padding: 0 24px;
+    }
+
+    .footer-phone-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        margin: 25px 0;
+        width: 100%;
+    }
+
+    .footer-phone {
+        margin-bottom: 0;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    .copyright {
+        width: 100%;
+        flex-shrink: 1;
+        margin: 0;
+    }
 }
