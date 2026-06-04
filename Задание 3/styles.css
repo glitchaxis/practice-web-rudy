@@ -4,7 +4,6 @@ body {
     background-color: #f9f9f9;
 }
 
-/* --- Заголовки и секции --- */
 .section-title-top,
 .section-title-pasta {
     display: block;
@@ -35,10 +34,11 @@ body {
     color: #F7D22D;
 }
 
-/* --- Шапка сайта (Header) --- */
 .header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     background: #fff;
-    padding: 20px 0;
     border-bottom: 1px solid #eee;
 }
 
@@ -78,7 +78,6 @@ body {
     display: none;
 }
 
-/* --- Компоненты шапки --- */
 .rating-bar {
     font-weight: 700;
     font-size: 13px;
@@ -108,7 +107,6 @@ body {
     font-size: 26px;
 }
 
-/* --- Кнопки --- */
 .callback-btn {
     background: #F3F3F7;
     color: #696F7A;
@@ -116,7 +114,6 @@ body {
     border: none;
     font-weight: 700;
     cursor: pointer;
-    transition: background 0.2s ease;
 }
 
 .header .callback-btn {
@@ -151,7 +148,6 @@ body {
     cursor: pointer;
 }
 
-/* --- Блок новинок --- */
 .new-pizza-grid {
     display: grid;
     grid-auto-flow: column;
@@ -161,6 +157,7 @@ body {
     margin: 33px auto 0;
     overflow-x: auto;
     scrollbar-width: none;
+    justify-content: center;
 }
 
 .new-pizza {
@@ -171,7 +168,7 @@ body {
     border-radius: 12px;
     width: 255px;
     box-sizing: border-box;
-    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.06);
+    background: #FFFFFF;
 }
 
 .new-pizza-image-box {
@@ -180,6 +177,13 @@ body {
     height: 71px;
     background: #787878;
     border-radius: 50%;
+    overflow: hidden;
+}
+
+.new-pizza-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .text-container {
@@ -193,7 +197,7 @@ body {
     margin: 0;
     font-size: 18px;
     font-weight: 800;
-    color: #686466;
+    color: #000000;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
@@ -201,7 +205,7 @@ body {
 .new-pizza-price {
     margin-top: 4px;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 800;
     color: #F7D22D;
 }
 
@@ -213,14 +217,14 @@ body {
     gap: 30px;
     overflow-x: auto;
     scrollbar-width: none;
-    align-items: center; 
-    padding: 24px; 
+    align-items: center;
+    padding: 24px;
 }
 
 .poster {
     width: 100%;
     height: 100%;
-    border-radius: 13px; 
+    border-radius: 13px;
     position: relative;
     overflow: hidden;
 }
@@ -234,8 +238,9 @@ body {
 
 .poster:nth-child(1),
 .poster:nth-child(4) {
-    height: 276px; 
+    height: 276px;
 }
+
 .poster:nth-child(1)::after,
 .poster:nth-child(4)::after {
     content: "";
@@ -244,7 +249,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.6); 
+    background: rgba(255, 255, 255, 0.6);
     pointer-events: none;
 }
 
@@ -273,9 +278,14 @@ body {
 .image-box {
     width: 100%;
     height: 253px;
-    background: #e0e0e0;
     border-radius: 8px;
     margin-bottom: 15px;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .title {
@@ -304,9 +314,9 @@ body {
     font-weight: 700;
     font-size: 22px;
     margin: 0;
+    color: #231F20;
 }
 
-/* --- Галерея десертов --- */
 .cakes-grid {
     max-width: 1200px;
     display: grid;
@@ -316,6 +326,7 @@ body {
         "big small1 small2"
         "big small3 small4";
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .cakes-large {
@@ -359,7 +370,8 @@ body {
 
 .info-grid-element {
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 700;
+    line-height: 22px;
     color: #473E43;
     background-color: #ffffff;
     border-radius: 14px;
@@ -369,7 +381,6 @@ body {
     align-items: center;
     text-align: center;
     position: relative;
-    box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.03);
 }
 
 .info-grid-element-icon {
@@ -391,13 +402,13 @@ body {
     height: 44px;
 }
 
-/* --- Карта --- */
 .map img {
     display: block;
     width: 100%;
     max-width: 1200px;
     height: auto;
     margin: 32px auto 74px;
+    border-radius: 14px;
 }
 
 .footer {
@@ -412,7 +423,6 @@ body {
     position: relative;
     z-index: 2;
 }
-
 
 .footer-top,
 .footer-bottom {
@@ -460,7 +470,6 @@ body {
     text-decoration: none;
 }
 
-
 .social-block {
     margin-top: 23px;
 }
@@ -501,13 +510,12 @@ body {
     grid-area: address;
     font-weight: 600;
     font-size: 14px;
-    line-height: 33px; 
+    line-height: 33px;
     color: #0E0C0D;
     opacity: 0.7;
     margin: 0;
     white-space: nowrap;
 }
-
 
 .footer-title-uppercase {
     font-weight: 700;
@@ -534,6 +542,7 @@ body {
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    background: #fff;
 }
 
 .messenger-box img {
@@ -568,28 +577,39 @@ body {
 
 .footer-bottom {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    border-top: 1px solid #E3ECF5;
+    padding-top: 30px;
+    margin-top: 40px;
+    position: static;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .copyright {
+    position: static;
+    width: auto;
+    margin: 0;
     font-weight: 600;
     font-size: 14px;
     line-height: 28px;
     color: #0E0C0D;
     opacity: 0.8;
-    width: 419px;
-    flex-shrink: 0;
 }
 
 .payment-methods {
+    position: static;
     display: flex;
-    gap: 23px;
+    align-items: center;
+    gap: 15px;
 }
 
 .payment-icon {
     width: 45.51px;
     height: 45.51px;
     border-radius: 8px;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -603,23 +623,20 @@ body {
 .footer-logo-bg {
     display: block;
     position: absolute;
-    width: 405px;      
-    height: 148px;    
-    right: -20px;      
-    bottom: 10px;     
-    transform: rotate(-10.9deg); 
-    z-index: 1;       
-    pointer-events: none; 
+    width: 405px;
+    height: 148px;
+    right: -20px;
+    bottom: 10px;
+    transform: rotate(-10.9deg);
+    z-index: 1;
+    pointer-events: none;
 }
 
 .footer-phone-row {
     display: none;
 }
 
-/* --- МЕДИА-ЗАПРОСЫ ДЛЯ ПЛАНШЕТОВ --- */
-/* --- МЕДИА-ЗАПРОСЫ ДЛЯ ПЛАНШЕТОВ --- */
 @media (max-width: 992px) {
-    /* Секции общего контейнера */
     .section-title-top,
     .section-title-pasta,
     .cakes-grid {
@@ -628,7 +645,6 @@ body {
         box-sizing: border-box;
     }
 
-    /* --- Шапка сайта (Header) --- */
     .header-container {
         flex-direction: row;
         justify-content: space-between;
@@ -636,7 +652,6 @@ body {
         padding: 0 20px;
     }
 
-    /* "Удаляем" промежуточные контейнеры, чтобы все элементы встали в одну линию */
     .header-top,
     .header-bottom {
         display: contents;
@@ -648,23 +663,9 @@ body {
         display: none !important;
     }
 
-    /* Расставляем элементы по порядку слева направо */
-    .logo-box {
-        margin-left: 0;
-        order: 1; /* Первый слева */
-    }
-
-    .phone-number {
-        order: 2; /* Второй */
-        font-size: 18px; /* Уменьшаем шрифт, чтобы влезло */
-        margin-left: auto; /* Отталкивает себя и соседей справа к правому краю */
-        margin-right: 15px;
-    }
-
-    .cart-btn {
-        order: 3; /* Третий */
-        margin-right: 15px;
-    }
+    .logo-box { margin-left: 0; order: 1; }
+    .phone-number { order: 2; font-size: 18px; margin-left: auto; margin-right: 15px; }
+    .cart-btn { order: 3; margin-right: 15px; }
 
     .burger-menu-btn {
         display: flex;
@@ -672,10 +673,9 @@ body {
         justify-content: space-between;
         width: 30px;
         height: 20px;
-        order: 4; /* Бургер строго последний (с правого края) */
+        order: 4;
         cursor: pointer;
     }
-
     .burger-menu-btn span {
         display: block;
         height: 3px;
@@ -684,35 +684,20 @@ body {
         border-radius: 2px;
     }
 
-    /* --- Постеры (Сброс размеров) --- */
     .poster-grid-top {
-        grid-template-columns: repeat(4, 355px); /* Точная ширина из Figma */
+        grid-template-columns: repeat(4, 355px);
         gap: 20px;
         padding: 0 20px;
     }
-
-    /* Жестко переопределяем высоту для всех постеров */
-    .poster,
-    .poster:nth-child(1),
-    .poster:nth-child(2),
-    .poster:nth-child(3),
-    .poster:nth-child(4) {
-        height: 206px; /* Точная высота из Figma */
+    .poster, .poster:nth-child(1), .poster:nth-child(2), .poster:nth-child(3), .poster:nth-child(4) {
+        height: 206px;
     }
-
-    /* Отключаем белую пелену по бокам, так как на планшете это скролл */
-    .poster:nth-child(1)::after,
-    .poster:nth-child(4)::after {
+    .poster:nth-child(1)::after, .poster:nth-child(4)::after {
         display: none;
     }
 
-    /* --- Новинки --- */
-    .new-pizza-grid {
-        padding: 0 20px;
-        box-sizing: border-box;
-    }
+    .new-pizza-grid { padding: 0 20px; box-sizing: border-box; justify-content: start; }
 
-    /* --- Меню (2 колонки) --- */
     .menu-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
@@ -728,212 +713,575 @@ body {
             "image desc"
             "footer footer";
         gap: 10px 15px;
-        height: 169px;
+        height: auto;
+        min-height: 169px;
         padding: 15px;
         box-sizing: border-box;
         background: #ffffff;
-        box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.04);
         border-radius: 12px;
-    }
-
-    .image-box {
-        grid-area: image;
-        width: 122px;
-        height: 122px;
-        margin-bottom: 0;
-    }
-
-    .image-box img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 8px;
-    }
-
-    .title {
-        grid-area: title;
-        font-size: 12px;
-        font-weight: 800;
-        line-height: 20px;
-        color: #797979;
-        margin: 0;
-    }
-
-    .description {
-        grid-area: desc;
-        font-size: 10px;
-        line-height: 16px;
-        color: #686466;
-        margin: 0;
         overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
     }
 
-    .card-footer {
-        grid-area: footer;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 0;
-        padding-top: 0;
-    }
+    .image-box { grid-area: image; width: 122px; height: 122px; margin-bottom: 0; }
+    .image-box img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
 
-    .price {
-        font-size: 22px;
-        line-height: 19px;
-        color: #231F20;
-        font-weight: 700;
-    }
+    .title { grid-area: title; font-size: 12px; font-weight: 800; line-height: 20px; color: #797979; margin: 0; }
+    .description { grid-area: desc; font-size: 10px; line-height: 16px; color: #686466; margin: 0; }
+
+    .card-footer { grid-area: footer; display: flex; justify-content: space-between; align-items: center; margin-top: 0; padding-top: 0; }
+    .price { font-size: 22px; line-height: 19px; color: #231F20; font-weight: 700; }
 
     .add-btn {
-        width: 126px;
-        height: 36px;
-        padding: 0;
-        font-size: 14px;
-        color: #473E43;
-        background: #F7D22D;
-        border-radius: 8px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        width: 126px; height: 36px; padding: 0; font-size: 14px;
+        color: #473E43; background: #F7D22D; border-radius: 8px;
+        display: flex; justify-content: center; align-items: center;
     }
 
-    /* --- Оплата и доставка --- */
-    .payment-and-delivery {
-        padding: 40px 20px;
-    }
-
-    .payment-text {
-        font-size: 24px;
-        line-height: 29px;
-        margin-bottom: 40px;
-    }
-
+    .payment-and-delivery { padding: 40px 20px; }
+    .payment-text { font-size: 24px; line-height: 29px; margin-bottom: 40px; }
     .info-grid {
         grid-template-columns: repeat(2, 255px);
         justify-content: center;
         gap: 55px 30px;
         margin: 40px auto 0;
     }
-
     .info-grid-element {
-        width: 255px;
-        height: 100px;
-        padding: 35px 15px 10px;
-        box-sizing: border-box;
+        width: 255px; height: 100px;
+        padding: 35px 15px 10px; box-sizing: border-box; border-radius: 14px;
+    }
+    .info-grid-element-text { font-size: 12px; line-height: 20px; font-weight: 700; color: #473E43; }
+    .info-grid-element-icon { top: -38.5px; width: 77px; height: 77px; }
+    .info-grid-element-icon img { width: 44px; height: 44px; }
+    .map img { max-width: 729px; border-radius: 14px; margin: 40px auto 0; }
+
+    .footer { padding: 40px 0 20px; }
+
+    .footer-container {
+        max-width: 768px;
+        padding: 0 20px 40px;
+        position: relative;
+    }
+
+    .footer-top {
+        display: block;
+        position: relative;
+        height: 250px;
+        margin-bottom: 0;
+    }
+
+    .footer-col, .social-block, .social-grid { display: contents; }
+
+    .footer-logo { position: absolute; left: 0; top: 0; margin: 0; }
+
+    .footer-col:nth-child(1) .footer-link { position: absolute; left: 120px; top: 30px; }
+    .footer-col:nth-child(2) .footer-link { position: absolute; left: 376px; top: 30px; padding-top: 0; }
+
+    .footer-title { position: absolute; left: 120px; top: 81px; margin: 0; }
+    .social-link:nth-child(1) { position: absolute; left: 120px; top: 124px; }
+    .social-link:nth-child(3) { position: absolute; left: 120px; top: 159px; }
+    .social-link:nth-child(2) { position: absolute; left: 309px; top: 124px; }
+    .social-link:nth-child(4) { position: absolute; left: 309px; top: 159px; }
+
+    .footer-address {
+        position: absolute; left: 502px; top: 124px;
+        white-space: normal; line-height: 1.4; text-align: left;
+    }
+
+    .footer-contacts {
+        display: block;
+        padding-top: 250px;
+    }
+
+    .footer-title-uppercase { font-size: 12px; margin-bottom: 20px; }
+
+    .messengers-grid {
+        display: flex;
+        gap: 14px;
+        width: 100%;
+        margin-bottom: 0;
+    }
+    .messenger-box { width: 72px; height: 52px; flex-shrink: 0; }
+    .messenger-box.write-to-us { width: 216px; padding: 0; }
+
+    .footer-phone {
+        position: static;
+        font-size: 18px;
+        line-height: 22px;
+        margin-bottom: 0;
+    }
+
+    .footer .callback-btn {
+        margin: 0;
+        width: 180px;
+        height: 42px;
+    }
+
+    .footer-bottom {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 20px;
+        margin-top: 100px;
+    }
+
+    .footer-contact-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .payment-methods {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .copyright {
+        font-size: 14px;
+        line-height: 28px;
+    }
+
+    .footer-logo-bg {
+        position: absolute; right: 0; bottom: 10px; left: auto;
+        width: 176px; height: auto; transform: none;
+    }
+
+}
+
+
+/* ============================================
+   MOBILE VIEW (based on Figma.txt)
+   ============================================ */
+@media (max-width: 480px) {
+    /* ---- Header ---- */
+    .header-container {
+        padding: 0 10px;
+        gap: 0;
+    }
+    .header-top {
+        width: 100%;
+        height: 60px;
+    }
+    .logo-box {
+        margin-left: 0;
+        width: 60px;
+        height: 45px;
+    }
+    .logo-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    .phone-number,
+    .header .callback-btn,
+    .delivery-info,
+    .nav-menu,
+    .cart-btn {
+        display: none !important;
+    }
+    .burger-menu-btn {
+        display: flex !important;
+        width: 39px;
+        height: 27px;
+        order: 2;
+        margin-left: auto;
+    }
+    .burger-menu-btn span {
+        height: 3px;
+        background: #686466;
+        border-radius: 26px;
+    }
+
+    /* ---- Posters (slider) ---- */
+    .poster-grid-top {
+        margin: 20px auto 40px;
+        grid-template-columns: repeat(4, 213px);
+        gap: 15px;
+        padding: 0 10px;
+    }
+    .poster,
+    .poster:nth-child(1),
+    .poster:nth-child(2),
+    .poster:nth-child(3),
+    .poster:nth-child(4) {
+        height: 124px;
+        border-radius: 13px;
+        filter: drop-shadow(0px 4px 24px rgba(0, 0, 0, 0.26));
+    }
+    .poster img {
+        border-radius: 13px;
+    }
+
+    /* ---- Section titles ---- */
+    .section-title-top,
+    .section-title-pasta {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+    .section-title-top {
+        font-size: 19px;
+        line-height: 23px;
+        font-weight: 700;
+        color: #231F20;
+    }
+    .section-title-pasta {
+        font-size: 21px;
+        line-height: 26px;
+        font-weight: 800;
+        color: #F7D22D;
+    }
+
+    /* ---- Новинки ---- */
+    .new-pizza-grid {
+        max-width: 100%;
+        margin: 20px auto 0;
+        padding: 0 10px;
+        gap: 15px;
+        justify-content: start;
+    }
+    .new-pizza {
+        width: 200px;
+        height: 78px;
+        padding: 11px 14px;
+        gap: 10px;
+        border-radius: 12px;
+        box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.06);
+    }
+    .new-pizza-image-box {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+    }
+    .new-pizza-name {
+        font-size: 14px;
+        line-height: 17px;
+        font-weight: 700;
+        color: #000000;
+    }
+    .new-pizza-price {
+        font-size: 13px;
+        line-height: 16px;
+        font-weight: 800;
+        color: #F7D22D;
+        margin-top: 4px;
+    }
+
+    /* ---- Паста / Menu grid ---- */
+    .menu-grid {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        margin: 30px auto;
+        padding: 0 10px;
+        gap: 15px;
+    }
+    .product-card {
+        display: grid;
+        grid-template-columns: 103px 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "image title"
+            "image desc"
+            "footer footer";
+        min-height: 149px;
+        padding: 15px;
+        gap: 8px 15px;
+        background: #ffffff;
+        border-radius: 12px;
+        height: auto;
+    }
+    .image-box {
+        grid-area: image;
+        width: 103px;
+        height: 103px;
+        margin-bottom: 0;
+        border-radius: 8px;
+    }
+    .image-box img {
+        border-radius: 8px;
+        object-fit: cover;
+    }
+    .title {
+        grid-area: title;
+        font-size: 10px;
+        line-height: 20px;
+        font-weight: 800;
+        color: #797979;
+        margin: 0;
+    }
+    .description {
+        grid-area: desc;
+        font-size: 9px;
+        line-height: 13px;
+        font-weight: 500;
+        color: #686466;
+        margin: 0;
+    }
+    .card-footer {
+        grid-area: footer;
+        margin-top: 0;
+        padding-top: 10px;
+    }
+    .price {
+        font-size: 22px;
+        line-height: 19px;
+        font-weight: 700;
+        color: #231F20;
+    }
+    .add-btn {
+        width: 126px;
+        height: 36px;
+        padding: 0;
+        font-size: 14px;
+        line-height: 28px;
+        font-weight: 700;
+        color: #473E43;
+        background: #F7D22D;
+        border-radius: 8px;
+    }
+
+    /* ---- Наши акции ---- */
+    .container-for-title {
+        margin-top: 40px;
+    }
+    .section-title {
+        font-size: 20px;
+        line-height: 24px;
+        font-weight: 800;
+        color: #0E0C0D;
+    }
+    .cakes-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "big big"
+            "small1 small2"
+            "small3 small4";
+        gap: 15px;
+        padding: 0 10px;
+    }
+    .cakes-large,
+    .cakes-small {
+        height: 101px;
+        border-radius: 10px;
+    }
+    .cakes-large {
+        height: 213px;
+    }
+    .cakes-grid img {
+        border-radius: 10px;
+    }
+    .all-sales {
+        width: 97px;
+        height: 33px;
+        padding: 0;
+        font-size: 10px;
+        line-height: 28px;
+        font-weight: 700;
+        color: #0E0C0D;
+        border-radius: 23px;
+        margin: 30px auto;
+    }
+
+    /* ---- Оплата и доставка ---- */
+    .payment-and-delivery {
+        padding: 40px 10px;
+        margin-bottom: 30px;
+    }
+    .payment-text {
+        font-size: 20px;
+        line-height: 24px;
+        font-weight: 800;
+        color: #F7D22D;
+    }
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        max-width: 100%;
+        margin: 60px auto 0;
+    }
+    .info-grid-element {
+        width: 100%;
+        max-width: 255px;
+        height: auto;
+        min-height: 92px;
+        margin: 0 auto;
+        padding: 43px 20px 20px;
         border-radius: 14px;
         box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.03);
     }
-
     .info-grid-element-text {
-        font-size: 12px;
-        line-height: 20px;
+        font-size: 10px;
+        line-height: 17px;
         font-weight: 700;
         color: #473E43;
     }
-
     .info-grid-element-icon {
         top: -38.5px;
         width: 77px;
         height: 77px;
     }
-
     .info-grid-element-icon img {
         width: 44px;
         height: 44px;
     }
-
     .map img {
-        max-width: 729px;
         border-radius: 14px;
-        margin: 40px auto 0;
+        margin: 30px auto 0;
     }
 
-    /* --- Подвал сайта (Footer) --- */
+    /* ---- Footer ---- */
+    .footer {
+        padding: 30px 0 20px;
+    }
+    .footer-container {
+        max-width: 100%;
+        padding: 0 10px;
+    }
     .footer-top {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 30px;
+        gap: 20px;
         margin-bottom: 30px;
-        text-align: center;
     }
-
-    .footer-col {
+    .footer-logo {
+        width: 60px;
+        height: 45px;
+        margin-bottom: 15px;
+    }
+    .footer-logo img {
         width: 100%;
-        align-items: center;
+        height: 100%;
+        object-fit: contain;
     }
-
-    .footer-top .footer-col:nth-child(2) {
-        padding-top: 0;
+    .footer-link {
+        font-size: 10px;
+        line-height: 28px;
+        font-weight: 700;
+        color: #0E0C0D;
+        opacity: 0.85;
     }
-
-    .footer-contacts {
-        padding-top: 0;
-        width: 100%;
+    .social-block {
+        margin-top: 15px;
     }
-
+    .footer-title {
+        font-size: 12px;
+        line-height: 28px;
+        font-weight: 700;
+        color: #0E0C0D;
+        opacity: 0.85;
+    }
     .social-grid {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-
-    /* Жесткий сброс десктопных правил текста */
-    .footer-address {
-        white-space: normal; /* Разрешаем перенос текста */
-        text-align: center;  /* Центрируем */
-        line-height: 1.5;    /* Безопасный межстрочный интервал */
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "link1 link2"
+            "link3 link4"
+            "address address";
+        gap: 5px 20px;
         margin-top: 10px;
     }
-
+    .social-link {
+        font-size: 10px;
+        line-height: 10px;
+        font-weight: 600;
+        color: #0E0C0D;
+        opacity: 0.7;
+    }
+    .footer-address {
+        font-size: 9px;
+        line-height: 22px;
+        font-weight: 600;
+        color: #0E0C0D;
+        opacity: 0.7;
+        white-space: normal;
+    }
+    .footer-contacts {
+        padding-top: 0;
+    }
+    .footer-title-uppercase {
+        font-size: 10px;
+        line-height: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #0E0C0D;
+        margin-bottom: 20px;
+    }
     .messengers-grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 14px;
-        width: 100%;
-        margin-bottom: 0;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin-bottom: 20px;
     }
-
     .messenger-box {
-        width: 52px;
-        height: 52px;
-        flex-shrink: 0;
+        height: 37.29px;
+        border-radius: 6px;
+        border: 2px solid #E3ECF5;
     }
-
-    .messenger-box.write-to-us {
-        width: auto;
-        padding: 0 24px;
+    .messenger-box img {
+        width: 20px;
+        height: 20px;
     }
-
-    .footer-phone-row {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-        margin: 25px 0;
-        width: 100%;
+    .write-to-us {
+        grid-column: span 2;
+        font-size: 13px;
+        font-weight: 700;
+        font-variant: small-caps;
+        color: #0E0C0D;
+        opacity: 0.8;
+        height: 42px;
+        border-radius: 8px;
     }
-
-    .footer-phone {
-        margin-bottom: 0;
-    }
-
     .footer-bottom {
         flex-direction: column;
+        align-items: flex-start;
         gap: 20px;
-        text-align: center;
+        margin-top: 20px;
         padding-top: 20px;
     }
-
-    .copyright {
+    .footer-phone {
+        font-size: 21px;
+        line-height: 26px;
+        font-weight: 700;
+        color: #F7D22D;
+        margin-bottom: 0;
+    }
+    .footer .callback-btn {
+        width: 131px;
+        height: 32px;
+        font-size: 10px;
+        line-height: 28px;
+        font-weight: 700;
+        color: #696F7A;
+        background: #F3F3F7;
+        border-radius: 28px;
+    }
+    .footer-contact-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
         width: 100%;
-        flex-shrink: 1;
-        margin: 0;
+    }
+    .copyright {
+        font-size: 10px;
+        line-height: 28px;
+        font-weight: 600;
+        color: #0E0C0D;
+        opacity: 0.8;
+    }
+    .payment-methods {
+        gap: 10px;
+    }
+    .payment-icon {
+        width: 23px;
+        height: 23px;
+    }
+    .payment-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    .footer-logo-bg {
+        display: none;
     }
 }
