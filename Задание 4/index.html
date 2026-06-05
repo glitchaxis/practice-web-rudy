@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="styles.css">
     <base target="_blank">
     <base target="_blank">
+<base target="_blank">
 </head>
 
 <body>
@@ -32,9 +33,34 @@
                 <nav class="nav-menu"><a href="#">Пицца</a><a href="#">Паста</a><a href="#">Супы</a><a
                         href="#">Салаты</a><a href="#">Напитки</a><a href="#">Десерты</a><a href="#">Бакалея</a><a
                         href="#">Антипасти</a><a href="#">Акции</a><a href="#">Комбо</a><a href="#">Контакты</a><a
-                        href="#" class="nav-login">Войти</a></nav><button class="cart-btn"><span
+                        href="#" class="nav-login">Войти</a></nav>
+<div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+        <a href="#" class="logo-box"><img src="content/media/logos/logo-1.png" alt="Fib Pasta Bar"></a>
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Закрыть">&#10005;</button>
+    </div>
+    <nav class="mobile-nav">
+        <a href="#">Пицца</a>
+        <a href="#">Паста</a>
+        <a href="#">Супы</a>
+        <a href="#">Салаты</a>
+        <a href="#">Напитки</a>
+        <a href="#">Десерты</a>
+        <a href="#">Бакалея</a>
+        <a href="#">Антипасти</a>
+        <a href="#">Акции</a>
+        <a href="#">Комбо</a>
+        <a href="#">Контакты</a>
+        <a href="#" class="nav-login">Войти</a>
+    </nav>
+    <div class="mobile-menu-footer">
+        <div class="phone-number">8 499 391-84-49</div>
+        <button class="callback-btn">Заказать звонок</button>
+    </div>
+</div>
+<div class="mobile-menu-overlay" id="mobileMenuOverlay"></div><button class="cart-btn"><span
                         class="cart-text">Корзина</span><span class="cart-sep"></span><span
-                        class="cart-count">1</span></button><button class="burger-menu-btn"
+                        class="cart-count">1</span></button><button class="burger-menu-btn" id="burgerMenuBtn"
                     aria-label="Меню"><span></span><span></span><span></span></button>
             </div>
         </div>
@@ -356,6 +382,22 @@
             </div>
         </div><img src="content/media/logos/logo-2.png" class="footer-logo-bg" alt="bg logo">
     </footer>
+
+<script>
+(function(){
+    var btn = document.getElementById('burgerMenuBtn');
+    var menu = document.getElementById('mobileMenu');
+    var overlay = document.getElementById('mobileMenuOverlay');
+    var close = document.getElementById('mobileMenuClose');
+    if(!btn || !menu || !overlay) return;
+    function open(){ menu.classList.add('is-open'); overlay.classList.add('is-open'); btn.classList.add('is-active'); document.body.style.overflow = 'hidden'; }
+    function closeFn(){ menu.classList.remove('is-open'); overlay.classList.remove('is-open'); btn.classList.remove('is-active'); document.body.style.overflow = ''; }
+    btn.addEventListener('click', function(){ if(menu.classList.contains('is-open')) closeFn(); else open(); });
+    close.addEventListener('click', closeFn);
+    overlay.addEventListener('click', closeFn);
+    menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeFn); });
+})();
+</script>
 </body>
 
 </html>
