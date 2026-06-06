@@ -54,6 +54,7 @@ img {
     display: block
 }
 
+/* ===== ШАПКА (как в оригинале, но через Bootstrap-разметку) ===== */
 .header {
     position: -webkit-sticky;
     position: sticky;
@@ -61,55 +62,72 @@ img {
     z-index: 1000;
     background: var(--color-bg);
     border-bottom: 1px solid #eee;
-    padding: 13px 0 0
+    padding: 13px 0 0;
 }
 
-.logo-text {
-    font-size: 42px;
-    font-weight: 800;
-    line-height: 0.85;
-    color: var(--color-text);
-    letter-spacing: -2px
+.header-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-.logo-sub {
-    font-size: 10px;
-    font-weight: 700;
-    line-height: 1.1;
-    color: var(--color-text);
-    text-transform: lowercase;
-    margin-top: 2px
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-.logo-fork {
-    font-size: 28px;
-    line-height: 1;
-    margin-left: 2px;
-    filter: grayscale(1) brightness(0.3)
+.header-top .navbar-brand {
+    padding: 0;
+    margin: 0;
+}
+
+.header-top .navbar-brand img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+.delivery-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .delivery-title {
     font-weight: 600;
     font-size: 17px;
-    color: var(--color-text)
+    color: var(--color-text);
+    line-height: 1.2;
 }
 
 .delivery-title .highlight {
-    color: var(--color-primary)
+    color: var(--color-primary);
 }
 
-.rating-icon {
-    font-size: 14px
+.rating-bar {
+    font-size: 13px;
+    color: var(--color-text);
+    font-weight: 700;
+}
+
+.rating-bar .icon {
+    width: 18px;
+    height: 18px;
 }
 
 .dot {
     font-size: 10px;
-    color: var(--color-accent-red)
+    color: var(--color-accent-red);
+    line-height: 1;
 }
 
 .star {
     color: var(--color-primary);
-    font-size: 14px
+    font-size: 14px;
+    line-height: 1;
 }
 
 .phone-number {
@@ -117,7 +135,8 @@ img {
     font-size: 26px;
     color: var(--color-primary);
     text-transform: uppercase;
-    letter-spacing: 0.5px
+    letter-spacing: 0.5px;
+    white-space: nowrap;
 }
 
 .callback-btn {
@@ -126,20 +145,78 @@ img {
     border-radius: var(--radius-round);
     padding: 10px 24px;
     font-weight: 700;
-    font-size: 14px
+    font-size: 14px;
+    transition: background 0.2s;
+    white-space: nowrap;
+    border: none;
 }
 
-.nav-menu a {
+.callback-btn:hover {
+    background: #e0e0e5;
+}
+
+.header-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    gap: 15px;
+}
+
+.header-bottom nav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.header-bottom .nav-link {
     font-weight: 600;
     font-size: 15px;
     color: var(--color-text);
-    white-space: nowrap
+    transition: color 0.2s;
+    white-space: nowrap;
+    padding: 0;
+    text-decoration: none;
 }
 
-.nav-login {
-    color: var(--color-btn-gray-text) !important
+.header-bottom .nav-link:hover {
+    color: var(--color-primary);
 }
 
+.header-bottom .nav-login {
+    color: var(--color-btn-gray-text) !important;
+}
+
+/* Dropdown внутри навигации */
+.header-bottom .dropdown-menu {
+    border-radius: var(--radius-md);
+    border: none;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    font-family: var(--font-main);
+    padding: 8px 0;
+    min-width: 180px;
+}
+
+.header-bottom .dropdown-item {
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 20px;
+    color: var(--color-text);
+}
+
+.header-bottom .dropdown-item:hover,
+.header-bottom .dropdown-item:focus {
+    background-color: var(--color-bg-light);
+    color: var(--color-text);
+}
+
+.header-bottom .dropdown-divider {
+    margin: 6px 0;
+    border-color: #eee;
+}
+
+/* Корзина */
 .cart-btn {
     display: flex;
     align-items: center;
@@ -149,7 +226,14 @@ img {
     padding: 10px 24px;
     font-weight: 700;
     font-size: 16px;
-    color: var(--color-text)
+    color: var(--color-text);
+    transition: background 0.2s;
+    white-space: nowrap;
+    border: none;
+}
+
+.cart-btn:hover {
+    background: var(--color-primary-dark);
 }
 
 .cart-sep {
@@ -157,9 +241,10 @@ img {
     height: 20px;
     background: var(--color-text);
     border-radius: 2px;
-    display: inline-block
+    display: inline-block;
 }
 
+/* Бургер (как в оригинале) */
 .burger-menu-btn {
     display: none;
     flex-direction: column;
@@ -167,7 +252,9 @@ img {
     width: 30px;
     height: 20px;
     background: none;
-    padding: 0
+    padding: 0;
+    border: none;
+    cursor: pointer;
 }
 
 .burger-menu-btn span {
@@ -175,7 +262,12 @@ img {
     height: 3px;
     width: 100%;
     background: var(--color-text-secondary);
-    border-radius: 26px
+    border-radius: 26px;
+    transition: transform 0.25s, opacity 0.25s;
+}
+
+.hero-section {
+    overflow: hidden;
 }
 
 .poster-grid-top {
@@ -187,32 +279,6 @@ img {
     margin: 0 auto;
     padding: 0 20px;
     position: relative
-}
-
-.slider-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    background: rgba(247, 210, 45, 0.9);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    color: var(--color-text);
-    z-index: 10;
-    border: none;
-    font-weight: 700
-}
-
-.slider-arrow--left {
-    left: 30px
-}
-
-.slider-arrow--right {
-    right: 30px
 }
 
 .poster {
@@ -239,87 +305,56 @@ img {
     display: block;
 }
 
-.poster-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(255, 255, 255, 0.6);
-    pointer-events: none
+.carousel-control-prev,
+.carousel-control-next {
+    width: 44px;
+    height: 44px;
+    background: rgba(247, 210, 45, 0.95);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+    transition: all 0.2s;
 }
 
-.poster-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 30px
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background: var(--color-primary);
+    transform: translateY(-50%) scale(1.05);
 }
 
-.poster-logo {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start
+.carousel-control-prev {
+    left: 40px;
 }
 
-.poster-logo-text {
-    font-size: 48px;
-    font-weight: 800;
-    line-height: 0.9;
-    color: var(--color-text);
-    letter-spacing: -2px
+.carousel-control-next {
+    right: 40px;
 }
 
-.poster-logo-sub {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--color-text);
-    text-transform: lowercase;
-    line-height: 1.2
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 16px;
+    height: 16px;
+    filter: invert(0) grayscale(100%) brightness(0.15);
 }
 
-.poster-logo--light .poster-logo-text,
-.poster-logo--light .poster-logo-sub {
-    color: #fff
+.carousel-indicators {
+    bottom: -36px;
 }
 
-.poster-illustration {
-    position: absolute;
-    right: 20px;
-    bottom: 0;
-    width: 200px;
-    height: 280px
+.carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    opacity: 0.4;
+    border: none;
+    margin: 0 5px;
 }
 
-.poster-person {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, transparent 30%, rgba(0, 0, 0, 0.1) 100%);
-    border-radius: 100px 100px 0 0;
-    position: relative
-}
-
-.poster-person::before {
-    content: '';
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 80px;
-    background: #333;
-    border-radius: 50%
-}
-
-.poster-person::after {
-    content: '';
-    position: absolute;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 160px;
-    background: #222;
-    border-radius: 40px 40px 0 0
+.carousel-indicators .active {
+    opacity: 1;
+    transform: scale(1.2);
 }
 
 .section-title-top {
@@ -347,18 +382,6 @@ img {
     color: var(--color-primary)
 }
 
-.new-pizza-grid {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    padding-bottom: 10px
-}
-
-.new-pizza-grid::-webkit-scrollbar {
-    display: none
-}
-
 .new-pizza {
     display: flex;
     align-items: center;
@@ -367,38 +390,20 @@ img {
     border-radius: var(--radius-md);
     background: var(--color-bg);
     min-width: 255px;
-    flex-shrink: 0
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
 .new-pizza-image-box {
     width: 71px;
     height: 71px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #e8d5a8 0%, #d4b896 100%);
     overflow: hidden;
     flex-shrink: 0;
     display: flex;
     align-items: center;
-    justify-content: center
-}
-
-.new-pizza-img {
-    width: 60px;
-    height: 60px;
-    background: radial-gradient(circle, #f4e4c1 0%, #e8d5a8 70%);
-    border-radius: 50%;
-    position: relative
-}
-
-.new-pizza-img::before {
-    content: '';
-    position: absolute;
-    inset: 5px;
-    border-radius: 50%;
-    background: repeating-conic-gradient(from 0deg,
-            #d4a574 0deg 20deg,
-            #c9956a 20deg 40deg);
-    opacity: 0.6
+    justify-content: center;
+    background: transparent;
 }
 
 .new-pizza-info {
@@ -420,19 +425,20 @@ img {
     color: var(--color-primary)
 }
 
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px
-}
-
 .product-card {
     display: flex;
     flex-direction: column;
     padding: 15px;
     border-radius: var(--radius-md);
     background: var(--color-bg);
-    position: relative
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
 
 .image-box {
@@ -444,61 +450,6 @@ img {
     display: flex;
     align-items: center;
     justify-content: center
-}
-
-.product-img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    position: relative
-}
-
-.product-img--1 {
-    background: radial-gradient(circle at 30% 30%, #f5e6d3 0%, #e8c9a0 40%, #d4a574 70%, #c9956a 100%)
-}
-
-.product-img--1::before {
-    content: '';
-    position: absolute;
-    inset: 8%;
-    border-radius: 50%;
-    background:
-        radial-gradient(circle at 25% 25%, #fff 0%, transparent 15%),
-        radial-gradient(circle at 75% 35%, #fff 0%, transparent 12%),
-        radial-gradient(circle at 50% 70%, #fff 0%, transparent 10%),
-        radial-gradient(circle at 35% 55%, #fff 0%, transparent 8%),
-        radial-gradient(circle at 65% 60%, #fff 0%, transparent 10%);
-    opacity: 0.7
-}
-
-.product-img--2 {
-    background: radial-gradient(circle at 40% 40%, #f8e8c8 0%, #e8c9a0 30%, #d4a574 60%, #b8956a 100%)
-}
-
-.product-img--2::before {
-    content: '';
-    position: absolute;
-    inset: 10%;
-    border-radius: 50%;
-    background: repeating-conic-gradient(from 0deg,
-            rgba(255, 255, 255, 0.3) 0deg 15deg,
-            transparent 15deg 30deg)
-}
-
-.product-img--3 {
-    background: radial-gradient(circle at 50% 50%, #f5e6d3 0%, #deb887 50%, #cd853f 100%)
-}
-
-.product-img--3::before {
-    content: '';
-    position: absolute;
-    inset: 5%;
-    border-radius: 50%;
-    border: 3px dashed rgba(255, 255, 255, 0.4)
-}
-
-.product-img--4 {
-    background: radial-gradient(circle at 35% 35%, #faebd7 0%, #e8c9a0 40%, #d2a679 100%)
 }
 
 .product-info {
@@ -526,7 +477,8 @@ img {
     justify-content: space-between;
     align-items: center;
     margin-top: 15px;
-    padding-top: 10px
+    padding-top: 10px;
+    border-top: 1px solid #f5f5f5;
 }
 
 .price {
@@ -541,7 +493,12 @@ img {
     border-radius: var(--radius-sm);
     padding: 10px 24px;
     font-weight: 700;
-    font-size: 14px
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.add-btn:hover {
+    background: var(--color-primary-dark);
 }
 
 .cakes-grid {
@@ -556,106 +513,93 @@ img {
 
 .cakes-large {
     grid-row: 1 / 3;
-    grid-column: 1 / 2
-}
-
-.cake-card {
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    position: relative;
-    height: 100%;
-    min-height: 189px;
-    background: linear-gradient(135deg, #e8f4f8 0%, #d0e8f0 50%, #b8dce8 100%);
-    display: flex;
-    align-items: center;
-    padding: 25px
-}
-
-.cake-card--large {
+    grid-column: 1 / 2;
     min-height: 398px;
-    padding: 35px
 }
 
-.cake-badge {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 70px;
-    height: 70px;
-    background: var(--color-accent-red);
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-weight: 800;
-    font-size: 18px;
-    line-height: 1;
-    text-align: center
+.cakes-small {
+    min-height: 189px;
 }
 
-.cake-badge small {
-    font-size: 11px;
-    font-weight: 600
+.cakes-large,
+.cakes-small {
+    overflow: hidden;
+    border-radius: var(--radius-xl);
 }
 
-.cake-content {
-    margin-left: 90px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px
+.cakes-large img,
+.cakes-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: var(--radius-xl);
 }
 
-.cake-card--large .cake-content {
-    margin-left: 100px
-}
-
-.cake-brand {
-    font-family: 'Brush Script MT', cursive;
-    font-size: 16px;
-    color: var(--color-accent-red);
-    font-style: italic
-}
-
-.cake-title {
-    font-size: 28px;
-    font-weight: 800;
-    color: var(--color-accent-red);
-    line-height: 1.1
-}
-
-.cake-card--large .cake-title {
-    font-size: 42px
-}
-
-.cake-subtitle {
-    font-size: 14px;
+.all-sales {
+    background: var(--color-primary);
+    color: var(--color-text);
+    border-radius: var(--radius-round);
+    padding: 12px 40px;
     font-weight: 700;
-    color: var(--color-accent-red);
-    text-transform: lowercase;
-    line-height: 1.3
+    font-size: 16px;
+    transition: background 0.2s;
 }
 
-.cake-card--large .cake-subtitle {
-    font-size: 20px
+.all-sales:hover {
+    background: var(--color-primary-dark);
 }
 
-.cake-desc {
-    font-size: 12px;
+.faq-section .section-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--color-text);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.accordion-item {
+    border: none;
+    border-radius: var(--radius-md) !important;
+    margin-bottom: 12px;
+    background: var(--color-bg);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    overflow: hidden;
+}
+
+.accordion-button {
+    font-weight: 700;
+    font-size: 16px;
+    padding: 20px 24px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-main);
+    border-radius: var(--radius-md) !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background: var(--color-primary);
+    color: var(--color-text);
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.accordion-button::after {
+    width: 18px;
+    height: 18px;
+    background-size: 18px;
+}
+
+.accordion-body {
+    font-size: 14px;
     color: var(--color-text-secondary);
-    margin-top: 4px
-}
-
-.cake-decor {
-    position: absolute;
-    right: -20px;
-    bottom: -20px;
-    width: 120px;
-    height: 120px;
-    background: radial-gradient(circle, rgba(255, 46, 101, 0.2) 0%, transparent 70%);
-    border-radius: 50%
+    padding: 0 24px 20px;
+    font-family: var(--font-main);
+    line-height: 1.6;
 }
 
 .payment-text {
@@ -702,6 +646,11 @@ img {
     height: 322px;
     border-radius: var(--radius-lg);
     border: none
+}
+
+.footer {
+    position: relative;
+    overflow: hidden;
 }
 
 .footer-logo-text {
@@ -769,12 +718,13 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--color-bg)
+    background: var(--color-bg);
+    transition: border-color 0.2s, background 0.2s;
 }
 
-.messenger-box svg {
-    width: 24px;
-    height: 24px
+.messenger-box:hover {
+    border-color: var(--color-primary);
+    background: var(--color-bg-light);
 }
 
 .copyright {
@@ -807,39 +757,6 @@ img {
     justify-content: center;
     font-size: 10px;
     font-weight: 700
-}
-
-.payment-icon--visa {
-    background: #1A1F71;
-    color: #fff;
-    letter-spacing: 1px
-}
-
-.payment-icon--paypal {
-    background: #003087;
-    color: #fff;
-    font-size: 9px
-}
-
-.payment-icon--mastercard {
-    background: #f5f5f5;
-    position: relative;
-    gap: 0
-}
-
-.mc-circle {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%
-}
-
-.mc-circle--red {
-    background: #EB001B
-}
-
-.mc-circle--orange {
-    background: #F79E1B;
-    margin-left: -8px
 }
 
 .footer-logo-bg {
@@ -888,46 +805,54 @@ img {
     filter: grayscale(1)
 }
 
-/* === BOOTSTRAP MOBILE MENU === */
-.mobile-menu-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.45);
-    z-index: 998;
-    opacity: 0;
-    visibility: hidden;
+.dropdown-menu {
+    border-radius: var(--radius-md);
+    border: none;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    font-family: var(--font-main);
+    padding: 8px 0;
+    min-width: 180px;
 }
 
-.mobile-menu-overlay.is-open {
-    opacity: 1;
-    visibility: visible;
+.dropdown-item {
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 20px;
+    color: var(--color-text);
 }
 
-.mobile-menu {
-    position: fixed;
-    top: 0;
-    right: 0;
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: var(--color-bg-light);
+    color: var(--color-text);
+}
+
+.dropdown-divider {
+    margin: 6px 0;
+    border-color: #eee;
+}
+
+.offcanvas {
+    font-family: var(--font-main);
+}
+
+.offcanvas-end {
     width: 320px;
     max-width: 85vw;
-    height: 100vh;
-    background: #fff;
-    z-index: 999;
-    transform: translateX(100%);
-    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
 }
 
-.mobile-menu.is-open {
-    transform: translateX(0);
-}
-
-.mobile-menu-close {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--color-btn-gray);
-    color: var(--color-btn-gray-text);
+.offcanvas-title {
+    font-weight: 800;
     font-size: 18px;
-    font-weight: 700;
+}
+
+.offcanvas-header .btn-close {
+    opacity: 1;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-btn-gray) url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23696F7A' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M1 1l14 14M15 1L1 15'/%3e%3c/svg%3e") center/12px auto no-repeat;
+    padding: 0;
 }
 
 .mobile-nav a {
@@ -935,454 +860,526 @@ img {
     font-size: 16px;
     color: var(--color-text);
     border-left: 3px solid transparent;
+    transition: all 0.2s;
+    text-decoration: none;
 }
 
-.mobile-nav a.nav-login {
-    color: var(--color-btn-gray-text);
+.mobile-nav a:hover,
+.mobile-nav a.active {
+    border-left-color: var(--color-primary);
+    background: var(--color-bg-light);
+    color: var(--color-text);
 }
 
-.cakes-large,
-.cakes-small {
-    min-height: 189px;
-    overflow: hidden;
-    border-radius: var(--radius-xl);
+.modal-content {
+    border-radius: var(--radius-lg);
+    border: none;
+    font-family: var(--font-main);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
 }
 
-.cakes-large img,
-.cakes-small img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: var(--radius-xl);
+.modal-header {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 20px 24px;
 }
 
-.cakes-large {
-    min-height: 398px;
+.modal-title {
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--color-text);
 }
 
-@media (min-width: 993px) {
+.modal-body {
+    padding: 24px;
+}
 
-    .mobile-menu,
-    .mobile-menu-overlay {
-        display: none !important;
+.form-label {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin-bottom: 6px;
+}
+
+.form-control {
+    border-radius: var(--radius-sm);
+    font-family: var(--font-main);
+    font-weight: 500;
+    padding: 12px 15px;
+    font-size: 14px;
+    border: 1px solid #e0e0e0;
+    color: var(--color-text);
+}
+
+.form-control:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.25rem rgba(247, 210, 45, 0.25);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-text);
+    font-weight: 700;
+    font-family: var(--font-main);
+    border-radius: var(--radius-sm);
+    padding: 12px 24px;
+    transition: all 0.2s;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: var(--color-primary-dark) !important;
+    border-color: var(--color-primary-dark) !important;
+    color: var(--color-text) !important;
+}
+
+.toast {
+    font-family: var(--font-main);
+    border-radius: var(--radius-md);
+    background: var(--color-text);
+    color: #fff;
+    border: none;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+}
+
+.toast-body {
+    font-weight: 600;
+    font-size: 14px;
+    padding: 14px 18px;
+}
+
+.progress {
+    height: 8px;
+    border-radius: var(--radius-pill);
+    background-color: var(--color-btn-gray);
+}
+
+.progress-bar {
+    background-color: var(--color-primary);
+    border-radius: var(--radius-pill);
+}
+
+.tooltip {
+    font-family: var(--font-main);
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.popover {
+    font-family: var(--font-main);
+    border-radius: var(--radius-md);
+    border: none;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+}
+
+.popover-header {
+    font-weight: 700;
+    background: var(--color-bg-light);
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    padding: 12px 16px;
+}
+
+.popover-body {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    padding: 12px 16px;
+}
+
+/* ===== АДАПТИВ ===== */
+@media (max-width: 991px) {
+    .header-container {
+        padding: 0 20px;
     }
-}
 
-@media (max-width: 992px) {
+    .header-top {
+        flex-wrap: nowrap;
+    }
 
     .delivery-info,
     .header-top .callback-btn {
-        display: none
+        display: none !important;
     }
 
     .phone-number {
         font-size: 18px;
         margin-left: auto;
-        margin-right: 15px
+        margin-right: 15px;
+    }
+
+    .header-bottom nav {
+        display: none !important;
     }
 
     .cart-btn {
-        order: 2
+        order: 2;
     }
 
     .burger-menu-btn {
         display: flex;
-        order: 3
-    }
-
-    .poster-grid-top {
-        gap: 15px
+        order: 3;
+        width: 36px;
+        height: 26px;
     }
 
     .poster--side {
-        display: none
+        display: none !important;
     }
 
     .poster--main {
         width: 355px;
-        height: 206px
+        height: 206px;
     }
 
-    .slider-arrow--left {
-        left: 10px
+    .carousel-control-prev {
+        left: 10px;
     }
-
-    .slider-arrow--right {
-        right: 10px
-    }
-
-    .new-pizza-grid {
-        justify-content: flex-start
-    }
-
-    .menu-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px
-    }
-
-    .product-card {
-        display: grid;
-        grid-template-columns: 122px 1fr;
-        grid-template-rows: auto 1fr auto;
-        gap: 10px 15px;
-        padding: 15px;
-        min-height: 169px
-    }
-
-    .image-box {
-        grid-row: 1 / 3;
-        aspect-ratio: 1;
-        margin-bottom: 0
-    }
-
-    .product-info {
-        grid-column: 2
-    }
-
-    .title {
-        font-size: 12px;
-        line-height: 1.4
-    }
-
-    .description {
-        font-size: 10px;
-        line-height: 1.5
-    }
-
-    .card-footer {
-        grid-column: 1 / -1;
-        margin-top: 0;
-        padding-top: 0
-    }
-
-    .add-btn {
-        width: 126px;
-        height: 36px;
-        padding: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center
-    }
-
-    .cakes-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto
-    }
-
-    .cakes-large {
-        grid-row: 1;
-        grid-column: 1 / -1
-    }
-
-    .cake-card--large {
-        min-height: 250px
-    }
-
-    .footer-logo-bg {
-        width: 200px;
-        height: 80px;
-        right: 0;
-        bottom: 5px
-    }
-
-    .bg-text--pizza {
-        font-size: 32px
-    }
-
-    .bg-text--pasta {
-        font-size: 28px
-    }
-
-    .bg-text--fib {
-        font-size: 36px
-    }
-}
-
-.cakes-large,
-.cakes-small {
-    min-height: 180px;
-}
-
-.cakes-large,
-.cakes-small {
-    min-height: 101px;
-}
-
-@media (max-width: 480px) {
-    body {
-        overflow-x: hidden
-    }
-
-    .header {
-        padding: 10px 0
-    }
-
-    .logo-text {
-        font-size: 32px
-    }
-
-    .logo-fork {
-        font-size: 22px
-    }
-
-    .phone-number,
-    .header-top .callback-btn,
-    .cart-btn {
-        padding: 8px 16px;
-        font-size: 12px
-    }
-
-    .cart-text {
-        display: none
-    }
-
-    .cart-sep {
-        display: none
-    }
-
-    .burger-menu-btn {
-        width: 39px;
-        height: 27px
-    }
-
-    .poster-grid-top {
-        gap: 15px;
-        padding: 0 15px
-    }
-
-    .poster--main {
-        width: 213px;
-        height: 124px
-    }
-
-    .slider-arrow {
-        display: none
-    }
-
-    .poster-logo-text {
-        font-size: 28px
-    }
-
-    .poster-illustration {
-        width: 100px;
-        height: 140px
-    }
-
-    .section-title-top {
-        font-size: 19px;
-        padding: 0 15px
-    }
-
-    .section-title-pasta {
-        font-size: 21px;
-        padding: 0 15px
-    }
-
-    .section-title {
-        font-size: 20px
-    }
-
-    .new-pizza-grid {
-        padding: 0 15px;
-        gap: 15px
-    }
-
-    .new-pizza {
-        min-width: 200px;
-        padding: 11px 14px
-    }
-
-    .new-pizza-image-box {
-        width: 56px;
-        height: 56px
-    }
-
-    .new-pizza-name {
-        font-size: 14px
-    }
-
-    .new-pizza-price {
-        font-size: 13px
-    }
-
-    .menu-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-        padding: 0 15px
-    }
-
-    .product-card {
-        display: grid;
-        grid-template-columns: 103px 1fr;
-        grid-template-rows: auto auto auto;
-        gap: 0;
-        padding: 0;
-        height: 149px;
-        overflow: hidden
-    }
-
-    .image-box {
-        grid-row: 1 / 4;
-        width: 103px;
-        height: 103px;
-        margin: auto 0 auto 10px;
-        align-self: center
-    }
-
-    .product-info {
-        grid-column: 2;
-        padding: 14px 10px 0 15px;
-        gap: 4px
-    }
-
-    .title {
-        font-size: 10px;
-        line-height: 1.4;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis
-    }
-
-    .description {
-        font-size: 9px;
-        line-height: 1.4;
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        overflow: hidden
-    }
-
-    .card-footer {
-        grid-column: 1 / -1;
-        padding: 0 10px 10px;
-        margin-top: auto
-    }
-
-    .price {
-        font-size: 18px
-    }
-
-    .add-btn {
-        width: 100px;
-        height: 32px;
-        font-size: 12px
+    .carousel-control-next {
+        right: 10px;
     }
 
     .cakes-grid {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
+    }
+
+    .cakes-large {
+        grid-row: 1;
+        grid-column: 1 / -1;
+        min-height: 250px;
+    }
+
+    .cakes-small {
+        min-height: 160px;
+    }
+
+    .footer-logo-bg {
+        display: none !important;
+    }
+
+    .faq-section .section-title {
+        font-size: 26px;
+    }
+
+    .payment-text {
+        font-size: 26px;
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 767px) {
+    .poster--main {
+        width: 280px;
+        height: 162px;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 36px;
+        height: 36px;
+    }
+
+    .carousel-indicators [data-bs-target] {
+        width: 8px;
+        height: 8px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .section-title-pasta {
+        font-size: 24px;
+    }
+
+    .section-title-top {
+        font-size: 20px;
+    }
+
+    .payment-text {
+        font-size: 22px;
+    }
+
+    .footer-phone {
+        font-size: 24px;
+    }
+
+    .map iframe {
+        height: 240px;
+    }
+
+    .info-grid-element {
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .navbar-brand img {
+        height: 30px;
+    }
+
+    .cart-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+
+    .cart-text {
+        display: none;
+    }
+
+    .cart-sep {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .header {
+        padding: 10px 0;
+    }
+
+    .header-container {
+        padding: 0 15px;
+    }
+
+    .header-top {
+        height: auto;
+    }
+
+    .phone-number,
+    .header-top .callback-btn,
+    .delivery-info {
+        display: none !important;
+    }
+
+    .cart-btn {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+
+    .cart-text {
+        display: none !important;
+    }
+
+    .cart-sep {
+        display: none !important;
+    }
+
+    .burger-menu-btn {
+        width: 39px;
+        height: 27px;
+    }
+
+    .burger-menu-btn.is-active span:nth-child(1) {
+        transform: translateY(10px) rotate(45deg);
+    }
+
+    .burger-menu-btn.is-active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .burger-menu-btn.is-active span:nth-child(3) {
+        transform: translateY(-10px) rotate(-45deg);
+    }
+
+    .hero-section {
+        padding: 20px 0;
+    }
+
+    .poster-grid-top {
         gap: 10px;
-        padding: 0 15px
+        padding: 0 10px;
     }
 
-    .cake-card {
-        min-height: 101px;
-        padding: 15px
+    .poster--main {
+        width: 213px;
+        height: 124px;
+        border-radius: 10px;
     }
 
-    .cake-card--large {
-        min-height: 180px
+    .carousel-control-prev,
+    .carousel-control-next {
+        display: none !important;
     }
 
-    .cake-badge {
-        width: 50px;
-        height: 50px;
+    .section-title-top {
+        font-size: 19px;
+    }
+
+    .section-title-pasta {
+        font-size: 21px;
+    }
+
+    .section-title {
+        font-size: 22px;
+    }
+
+    .new-pizza {
+        min-width: 200px;
+        padding: 11px 14px;
+    }
+
+    .new-pizza-image-box {
+        width: 56px;
+        height: 56px;
+    }
+
+    .new-pizza-name {
         font-size: 14px;
-        left: 10px
     }
 
-    .cake-content {
-        margin-left: 60px
+    .new-pizza-price {
+        font-size: 13px;
     }
 
-    .cake-card--large .cake-content {
-        margin-left: 70px
+    .product-card {
+        display: grid;
+        grid-template-columns: 110px 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 0;
+        padding: 0;
+        min-height: 140px;
+        overflow: hidden;
     }
 
-    .cake-title {
-        font-size: 18px
+    .product-card .image-box {
+        grid-row: 1 / 4;
+        width: 110px;
+        height: 110px;
+        margin: auto 0 auto 12px;
+        align-self: center;
+        aspect-ratio: auto;
     }
 
-    .cake-card--large .cake-title {
-        font-size: 28px
+    .product-card .product-info {
+        grid-column: 2;
+        padding: 14px 12px 0 14px;
+        gap: 4px;
     }
 
-    .cake-subtitle {
-        font-size: 11px
+    .product-card .title {
+        font-size: 13px;
+        line-height: 1.3;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .product-card .description {
+        font-size: 11px;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .product-card .card-footer {
+        grid-column: 1 / -1;
+        padding: 0 12px 12px;
+        margin-top: auto;
+        border-top: none;
+    }
+
+    .price {
+        font-size: 18px;
+    }
+
+    .add-btn {
+        width: 100px;
+        height: 32px;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cakes-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    .cakes-large {
+        min-height: 180px;
+    }
+
+    .cakes-small {
+        min-height: 100px;
     }
 
     .payment-text {
         font-size: 20px;
-        margin-bottom: 50px
+        margin-bottom: 30px;
     }
 
     .info-grid-element {
-        max-width: 280px;
-        margin: 0 auto;
-        padding: 45px 20px 20px
+        padding: 45px 20px 20px;
     }
 
     .info-grid-element-text {
-        font-size: 12px
+        font-size: 12px;
     }
 
     .map iframe {
-        height: 200px
+        height: 200px;
     }
 
     .footer-logo-text {
-        font-size: 28px
+        font-size: 28px;
     }
 
     .footer-link {
-        font-size: 12px
-    }
-
-    .social-block {
-        width: 100%;
-        margin-top: 15px
+        font-size: 12px;
     }
 
     .footer-title {
-        font-size: 14px
+        font-size: 14px;
     }
 
     .social-link {
-        font-size: 12px
+        font-size: 12px;
     }
 
     .footer-title-uppercase {
         font-size: 11px;
-        margin-bottom: 15px
+        margin-bottom: 15px;
     }
 
     .messenger-box {
         height: 40px;
-        border-radius: 8px
-    }
-
-    .messenger-box svg {
-        width: 18px;
-        height: 18px
+        border-radius: 8px;
     }
 
     .footer-phone {
-        font-size: 21px
+        font-size: 21px;
     }
 
     .footer .callback-btn {
         width: 140px;
         height: 36px;
-        font-size: 12px
+        font-size: 12px;
     }
 
     .copyright {
         font-size: 11px;
-        order: 3
     }
 
-    .footer-logo-bg {
-        display: none
+    .accordion-button {
+        font-size: 14px;
+        padding: 14px 18px;
+    }
+
+    .accordion-body {
+        padding: 0 18px 14px;
+        font-size: 12px;
+    }
+
+    .faq-section .section-title {
+        font-size: 22px;
     }
 }

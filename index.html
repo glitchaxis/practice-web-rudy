@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задания по web практике</title>
+    <style>
+        :root {
+            --bg-dark: #0a0d0a;
+            --card-bg: #141a14;
+            --border-dark: #252d25;
+            --text-main: #d1d9d1;
+            --text-muted: #4a564a;
+            --accent: #557855;
+            --accent-hover: #739d73;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        header {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        h1 {
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        section {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid var(--border-dark);
+            padding-bottom: 10px;
+        }
+
+        .group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 30px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-main);
+            border: 1px solid var(--border-dark);
+            transition: all 0.3s ease;
+            flex: 1 1 200px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .card:hover {
+            border-color: var(--accent-hover);
+            color: #fff;
+            background-color: #1a221a;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            margin-top: auto;
+            padding-top: 50px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Практика по Frontend</h1>
+    </header>
+
+    <section>
+        <h2>Flex / Grid</h2>
+        <div class="group">
+            <a href="Задание 3/index.html" class="card">Задание 3</a>
+            <a href="Задание 4/index.html" class="card">Задание 4</a>
+        </div>
+    </section>
+
+    <section>
+        <h2>Bootstrap</h2>
+        <div class="group">
+            <a href="Задание 5/index.html" class="card">Задание 5</a>
+            <a href="Задание 6/index.html" class="card">Задание 6</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>Выполнил Рудый Данила, Учащийся ПЗТ-43</p>
+    </footer>
+
+</body>
+</html>
